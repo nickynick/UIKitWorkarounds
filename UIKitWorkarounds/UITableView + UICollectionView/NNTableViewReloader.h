@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
             cellCustomReloadBlock:(nullable NNCellCustomReloadBlock)cellCustomReloadBlock NS_DESIGNATED_INITIALIZER;
 
 
-- (void)performUpdates:(void (^)())updates completion:(void (^)())completion;
+- (void)performUpdates:(void (^)())updates completion:(nullable void (^)())completion;
 
 - (void)insertSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation;
 - (void)deleteSections:(NSIndexSet *)sections withRowAnimation:(UITableViewRowAnimation)animation;
