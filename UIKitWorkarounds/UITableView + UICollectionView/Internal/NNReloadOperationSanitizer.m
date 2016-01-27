@@ -39,7 +39,7 @@
     self.mapper = [[NNReloadMapper alloc] initWithReloadOperations:self.operations];
     
     [self calculateAfterIndexesForReloads];
-    [self sanitizeIndexPathsMovedFromDeletedSectionsOrIntoInsertedSections];
+    [self sanitizeIndexPathsFromDeletedSectionsOrIntoInsertedSections];
     [self sanitizeReloadedAndMovedIndexPaths];
     [self sanitizeIndexPathsMovedBetweenSections];
 }
@@ -86,7 +86,7 @@
     }];
 }
 
-- (void)sanitizeIndexPathsMovedFromDeletedSectionsOrIntoInsertedSections {
+- (void)sanitizeIndexPathsFromDeletedSectionsOrIntoInsertedSections {
     [self sanitizeIndexPathOperationsWithBlock:^(NSMutableSet<NNIndexPathReloadOperation *> *badOperations, NSMutableSet<NNIndexPathReloadOperation *> *goodOperations) {
         // UIKit would get upset if we attempted to move an item from a section being deleted / into a section being inserted.
         // Therefore, we should break such moves into deletions+insertions.
@@ -111,6 +111,18 @@
                                                                                    context:operation.context
                                                                                     before:operation.before
                                                                                      after:nil]];
+            }
+        }];
+        
+        [self.operations enumerateIndexPathOperationsOfType:NNReloadOperationTypeReload withBlock:^(NNIndexPathReloadOperation *operation, BOOL *stop) {
+            if ([deletedSections containsIndex:operation.before.section] || [insertedSections containsIndex:operation.after.section]) {
+                [badOperations addObject:operation];
+            }
+        }];
+        
+        [self.operations enumerateIndexPathOperationsOfType:NNReloadOperationTypeCustomReload withBlock:^(NNIndexPathReloadOperation *operation, BOOL *stop) {
+            if ([deletedSections containsIndex:operation.before.section] || [insertedSections containsIndex:operation.after.section]) {
+                [badOperations addObject:operation];
             }
         }];
     }];

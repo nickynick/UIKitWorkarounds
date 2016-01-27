@@ -59,8 +59,10 @@ static NSString *NNReloadOperationTypeToString(NNReloadOperationType type) {
 - (NSString *)description {
     return [NSString stringWithFormat:@"{ %@ from %@.%@ to %@.%@ }",
             NNReloadOperationTypeToString(self.type),
-            @(self.before.section), @(self.before.row),
-            @(self.after.section), @(self.after.row)];
+            self.before ? @(self.before.section) : @"-",
+            self.before ? @(self.before.row) : @"-",
+            self.after ? @(self.after.section) : @"-",
+            self.after ? @(self.after.row) : @"-"];
 }
 
 @end
@@ -87,8 +89,8 @@ static NSString *NNReloadOperationTypeToString(NNReloadOperationType type) {
 - (NSString *)description {
     return [NSString stringWithFormat:@"{ %@ from %@ to %@ }",
             NNReloadOperationTypeToString(self.type),
-            @(self.before),
-            @(self.after)];
+            self.before != NSNotFound ? @(self.before) : @"-",
+            self.after != NSNotFound ? @(self.after) : @"-"];
 }
 
 @end
