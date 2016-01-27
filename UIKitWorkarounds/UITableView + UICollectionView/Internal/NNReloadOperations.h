@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
+
 typedef NS_ENUM(NSInteger, NNReloadOperationType) {
     NNReloadOperationTypeDelete,
     NNReloadOperationTypeInsert,
@@ -16,16 +19,15 @@ typedef NS_ENUM(NSInteger, NNReloadOperationType) {
     NNReloadOperationTypeCustomReload
 };
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface NNReloadOperation : NSObject
 
 @property (nonatomic, readonly) NNReloadOperationType type;
 @property (nonatomic, nullable, readonly) id context;
 
-- (instancetype)init NS_UNAVAILABLE;
-
 - (instancetype)initWithType:(NNReloadOperationType)type context:(nullable id)context NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
@@ -35,12 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable, readonly) NSIndexPath *before;
 @property (nonatomic, nullable, readonly) NSIndexPath *after;
 
-- (instancetype)initWithType:(NNReloadOperationType)type context:(nullable id)context NS_UNAVAILABLE;
-
 - (instancetype)initWithType:(NNReloadOperationType)type
                      context:(nullable id)context
                       before:(nullable NSIndexPath *)before
                        after:(nullable NSIndexPath *)after NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)initWithType:(NNReloadOperationType)type context:(nullable id)context NS_UNAVAILABLE;
 
 @end
 
@@ -50,12 +52,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSUInteger before;
 @property (nonatomic, readonly) NSUInteger after;
 
-- (instancetype)initWithType:(NNReloadOperationType)type context:(nullable id)context NS_UNAVAILABLE;
-
 - (instancetype)initWithType:(NNReloadOperationType)type
                      context:(nullable id)context
                       before:(NSUInteger)before
                        after:(NSUInteger)after NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)initWithType:(NNReloadOperationType)type context:(nullable id)context NS_UNAVAILABLE;
 
 @end
 
@@ -69,5 +71,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)enumerateSectionOperationsOfType:(NNReloadOperationType)type withBlock:(void (^)(NNSectionReloadOperation *operation, BOOL *stop))block;
 
 @end
+
 
 NS_ASSUME_NONNULL_END

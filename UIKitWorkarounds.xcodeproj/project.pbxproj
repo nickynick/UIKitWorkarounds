@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0141440E1C580F780058CE51 /* NNReloadMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0141440D1C580F780058CE51 /* NNReloadMapper.m */; };
+		014144111C582C040058CE51 /* NNIndexMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 014144101C582C040058CE51 /* NNIndexMapping.m */; };
 		01A3569E1C484EFA009969A3 /* UIKitWorkarounds.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01A3569D1C484EFA009969A3 /* UIKitWorkarounds.h */; };
 		01A356A01C484EFA009969A3 /* UIKitWorkarounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A3569F1C484EFA009969A3 /* UIKitWorkarounds.m */; };
 		01A356CD1C4854D2009969A3 /* NNTableViewReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A356CC1C4854D2009969A3 /* NNTableViewReloader.m */; };
@@ -29,6 +31,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0141440C1C580F780058CE51 /* NNReloadMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNReloadMapper.h; sourceTree = "<group>"; };
+		0141440D1C580F780058CE51 /* NNReloadMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNReloadMapper.m; sourceTree = "<group>"; };
+		0141440F1C582C040058CE51 /* NNIndexMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNIndexMapping.h; sourceTree = "<group>"; };
+		014144101C582C040058CE51 /* NNIndexMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNIndexMapping.m; sourceTree = "<group>"; };
 		01A3569A1C484EFA009969A3 /* libUIKitWorkarounds.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUIKitWorkarounds.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		01A3569D1C484EFA009969A3 /* UIKitWorkarounds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitWorkarounds.h; sourceTree = "<group>"; };
 		01A3569F1C484EFA009969A3 /* UIKitWorkarounds.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIKitWorkarounds.m; sourceTree = "<group>"; };
@@ -100,6 +106,10 @@
 				01A356D21C485A60009969A3 /* NNReloadOperations.m */,
 				01A356CE1C485A3C009969A3 /* NNReloadOperationSanitizer.h */,
 				01A356CF1C485A3C009969A3 /* NNReloadOperationSanitizer.m */,
+				0141440C1C580F780058CE51 /* NNReloadMapper.h */,
+				0141440D1C580F780058CE51 /* NNReloadMapper.m */,
+				0141440F1C582C040058CE51 /* NNIndexMapping.h */,
+				014144101C582C040058CE51 /* NNIndexMapping.m */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -166,6 +176,8 @@
 				01A356D01C485A3C009969A3 /* NNReloadOperationSanitizer.m in Sources */,
 				01A356D31C485A60009969A3 /* NNReloadOperations.m in Sources */,
 				01A356CD1C4854D2009969A3 /* NNTableViewReloader.m in Sources */,
+				014144111C582C040058CE51 /* NNIndexMapping.m in Sources */,
+				0141440E1C580F780058CE51 /* NNReloadMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

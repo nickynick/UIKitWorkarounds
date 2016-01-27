@@ -136,8 +136,8 @@
     for (NSIndexPath *indexPath in indexPaths) {
         [self.currentOperations.indexPathOperations addObject:[[NNIndexPathReloadOperation alloc] initWithType:NNReloadOperationTypeCustomReload
                                                                                                        context:nil
-                                                                                                        before:nil
-                                                                                                         after:indexPath]];
+                                                                                                        before:indexPath
+                                                                                                         after:nil]];
     }
 }
 

@@ -10,9 +10,14 @@
 
 @class NNReloadOperations;
 
+NS_ASSUME_NONNULL_BEGIN
+
 
 @interface NNReloadOperationSanitizer : NSObject
 
 + (void)sanitizeOperations:(NNReloadOperations *)operations customReloadAllowed:(BOOL)customReloadAllowed;
 
 @end
+
+
+NS_ASSUME_NONNULL_END

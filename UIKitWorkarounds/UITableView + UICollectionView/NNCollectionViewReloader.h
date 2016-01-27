@@ -12,16 +12,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface NNCollectionViewReloader : NSObject
 
 @property (nonatomic, strong, readonly) UICollectionView *collectionView;
-
-- (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView;
 
 - (instancetype)initWithCollectionView:(UICollectionView *)collectionView
                  cellCustomReloadBlock:(nullable NNCellCustomReloadBlock)cellCustomReloadBlock NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 
 - (void)performUpdates:(void (^)())updates completion:(nullable void (^)())completion;
@@ -34,9 +35,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)insertItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
 - (void)deleteItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
 - (void)reloadItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths;
-- (void)reloadItemsAtIndexPathsWithCustomBlock:(NSArray<NSIndexPath *> *)indexPaths; // indexPaths are "after update"
+- (void)reloadItemsAtIndexPathsWithCustomBlock:(NSArray<NSIndexPath *> *)indexPaths;
 - (void)moveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
 
 @end
+
 
 NS_ASSUME_NONNULL_END

@@ -12,16 +12,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface NNTableViewReloader : NSObject
 
 @property (nonatomic, strong, readonly) UITableView *tableView;
-
-- (instancetype)init NS_UNAVAILABLE;
 
 - (instancetype)initWithTableView:(UITableView *)tableView;
 
 - (instancetype)initWithTableView:(UITableView *)tableView
             cellCustomReloadBlock:(nullable NNCellCustomReloadBlock)cellCustomReloadBlock NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 
 - (void)performUpdates:(void (^)())updates completion:(nullable void (^)())completion;
@@ -34,9 +35,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)insertRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
 - (void)deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
 - (void)reloadRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation;
-- (void)reloadRowsAtIndexPathsWithCustomBlock:(NSArray<NSIndexPath *> *)indexPaths; // indexPaths are "after update"
+- (void)reloadRowsAtIndexPathsWithCustomBlock:(NSArray<NSIndexPath *> *)indexPaths;
 - (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
 
 @end
+
 
 NS_ASSUME_NONNULL_END
