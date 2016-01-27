@@ -40,8 +40,8 @@
     
     [self calculateAfterIndexesForReloads];
     [self sanitizeIndexPathsFromDeletedSectionsOrIntoInsertedSections];
-    [self sanitizeReloadedAndMovedIndexPaths];
     [self sanitizeIndexPathsMovedBetweenSections];
+    [self sanitizeReloadedAndMovedIndexPaths];
 }
 
 - (void)calculateAfterIndexesForReloads {
@@ -128,6 +128,31 @@
     }];
 }
 
+- (void)sanitizeIndexPathsMovedBetweenSections {
+    [self sanitizeIndexPathOperationsWithBlock:^(NSMutableSet<NNIndexPathReloadOperation *> *badOperations, NSMutableSet<NNIndexPathReloadOperation *> *goodOperations) {
+        [self.operations enumerateIndexPathOperationsOfType:NNReloadOperationTypeMove withBlock:^(NNIndexPathReloadOperation *operation, BOOL *stop) {
+            // Move animations between different sections will crash if the destination section index doesn't match its initial one (thanks UIKit!)
+            NSUInteger sourceSection = operation.before.section;
+            NSUInteger destinationSection = operation.after.section;
+            NSUInteger oldDestinationSection = [self.mapper sectionAfterToSectionBefore:destinationSection];
+            
+            if (sourceSection != oldDestinationSection && destinationSection != oldDestinationSection) {
+                [badOperations addObject:operation];
+                
+                [goodOperations addObject:[[NNIndexPathReloadOperation alloc] initWithType:NNReloadOperationTypeDelete
+                                                                                   context:operation.context
+                                                                                    before:operation.before
+                                                                                     after:nil]];
+                
+                [goodOperations addObject:[[NNIndexPathReloadOperation alloc] initWithType:NNReloadOperationTypeInsert
+                                                                                   context:operation.context
+                                                                                    before:nil
+                                                                                     after:operation.after]];
+            }
+        }];
+    }];
+}
+
 - (void)sanitizeReloadedAndMovedIndexPaths {
     NSSet<NSIndexPath *> *movedFromIndexPaths = [self movedFromIndexPaths];
 
@@ -156,31 +181,6 @@
             [badOperations addObject:operation];
             
             if (![movedFromIndexPaths containsObject:operation.before] || !self.customReloadAllowed) {
-                [goodOperations addObject:[[NNIndexPathReloadOperation alloc] initWithType:NNReloadOperationTypeDelete
-                                                                                   context:operation.context
-                                                                                    before:operation.before
-                                                                                     after:nil]];
-                
-                [goodOperations addObject:[[NNIndexPathReloadOperation alloc] initWithType:NNReloadOperationTypeInsert
-                                                                                   context:operation.context
-                                                                                    before:nil
-                                                                                     after:operation.after]];
-            }
-        }];
-    }];
-}
-
-- (void)sanitizeIndexPathsMovedBetweenSections {
-    [self sanitizeIndexPathOperationsWithBlock:^(NSMutableSet<NNIndexPathReloadOperation *> *badOperations, NSMutableSet<NNIndexPathReloadOperation *> *goodOperations) {
-        [self.operations enumerateIndexPathOperationsOfType:NNReloadOperationTypeMove withBlock:^(NNIndexPathReloadOperation *operation, BOOL *stop) {
-            // Move animations between different sections will crash if the destination section index doesn't match its initial one (thanks UIKit!)
-            NSUInteger sourceSection = operation.before.section;
-            NSUInteger destinationSection = operation.after.section;
-            NSUInteger oldDestinationSection = [self.mapper sectionAfterToSectionBefore:destinationSection];
-            
-            if (sourceSection != oldDestinationSection && destinationSection != oldDestinationSection) {
-                [badOperations addObject:operation];
-                
                 [goodOperations addObject:[[NNIndexPathReloadOperation alloc] initWithType:NNReloadOperationTypeDelete
                                                                                    context:operation.context
                                                                                     before:operation.before

@@ -137,7 +137,7 @@ static NSString *NNReloadOperationTypeToString(NNReloadOperationType type) {
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"{\nsection operations: %@,\n\nindexPath operations: %@\n}",
+    return [NSString stringWithFormat:@"{\nsection operations: %@,\nindexPath operations: %@}",
             self.sectionOperations,
             self.indexPathOperations];
 }
