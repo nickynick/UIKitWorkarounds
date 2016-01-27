@@ -18,6 +18,11 @@
 @property (nonatomic, strong, readonly) NNIndexMapping *sectionMapping;
 @property (nonatomic, strong, readonly) NSMutableDictionary<NSNumber *, NNIndexMapping *> *indexMappingsPerSectionBefore;
 
+@property (nonatomic, strong, readonly) NSMutableDictionary<NSNumber *, NSNumber *> *movedSectionsBefore;
+@property (nonatomic, strong, readonly) NSMutableDictionary<NSNumber *, NSNumber *> *movedSectionsAfter;
+@property (nonatomic, strong, readonly) NSMutableDictionary<NSIndexPath *, NSIndexPath *> *movedIndexPathsBefore;
+@property (nonatomic, strong, readonly) NSMutableDictionary<NSIndexPath *, NSIndexPath *> *movedIndexPathsAfter;
+
 @end
 
 
@@ -39,8 +44,26 @@
 #pragma mark - Calculations
 
 - (void)calculateMappings {
+    [self saveMoves];
     [self calculateSectionMapping];
     [self calculateIndexMappings];
+}
+
+- (void)saveMoves {
+    _movedSectionsBefore = [NSMutableDictionary dictionary];
+    _movedSectionsAfter = [NSMutableDictionary dictionary];
+    _movedIndexPathsBefore = [NSMutableDictionary dictionary];
+    _movedIndexPathsAfter = [NSMutableDictionary dictionary];
+    
+    [self.operations enumerateSectionOperationsOfType:NNReloadOperationTypeMove withBlock:^(NNSectionReloadOperation *operation, BOOL *stop) {
+        _movedSectionsBefore[@(operation.before)] = @(operation.after);
+        _movedSectionsAfter[@(operation.after)] = @(operation.before);
+    }];
+    
+    [self.operations enumerateIndexPathOperationsOfType:NNReloadOperationTypeMove withBlock:^(NNIndexPathReloadOperation *operation, BOOL *stop) {
+        _movedIndexPathsBefore[operation.before] = operation.after;
+        _movedIndexPathsAfter[operation.after] = operation.before;
+    }];
 }
 
 - (void)calculateSectionMapping {
@@ -109,14 +132,21 @@
 #pragma mark - Public
 
 - (NSUInteger)sectionBeforeToSectionAfter:(NSUInteger)sectionBefore {
-    return [self.sectionMapping indexBeforeToIndexAfter:sectionBefore];
+    NSNumber *moved = self.movedSectionsBefore[@(sectionBefore)];
+    return moved ? moved.unsignedIntegerValue : [self.sectionMapping indexBeforeToIndexAfter:sectionBefore];
 }
 
 - (NSUInteger)sectionAfterToSectionBefore:(NSUInteger)sectionAfter {
-    return [self.sectionMapping indexAfterToIndexBefore:sectionAfter];
+    NSNumber *moved = self.movedSectionsAfter[@(sectionAfter)];
+    return moved ? moved.unsignedIntegerValue : [self.sectionMapping indexAfterToIndexBefore:sectionAfter];
 }
 
 - (NSIndexPath *)indexPathBeforeToIndexPathAfter:(NSIndexPath *)indexPathBefore {
+    NSIndexPath *moved = self.movedIndexPathsBefore[indexPathBefore];
+    if (moved) {
+        return moved;
+    }
+    
     NSUInteger sectionAfter = [self sectionBeforeToSectionAfter:indexPathBefore.section];
     
     NNIndexMapping *indexMapping = self.indexMappingsPerSectionBefore[@(indexPathBefore.section)];
@@ -126,6 +156,11 @@
 }
 
 - (NSIndexPath *)indexPathAfterToIndexPathBefore:(NSIndexPath *)indexPathAfter {
+    NSIndexPath *moved = self.movedIndexPathsAfter[indexPathAfter];
+    if (moved) {
+        return moved;
+    }
+    
     NSUInteger sectionBefore = [self sectionAfterToSectionBefore:indexPathAfter.section];
     
     NNIndexMapping *indexMapping = self.indexMappingsPerSectionBefore[@(sectionBefore)];

@@ -66,7 +66,7 @@
     }];
     
     [self sanitizeIndexPathOperationsWithBlock:^(NSMutableSet<NNIndexPathReloadOperation *> *badOperations, NSMutableSet<NNIndexPathReloadOperation *> *goodOperations) {
-        for (NNIndexPathReloadOperation *operation in self.operations.sectionOperations) {
+        for (NNIndexPathReloadOperation *operation in self.operations.indexPathOperations) {
             if (operation.type != NNReloadOperationTypeReload && operation.type != NNReloadOperationTypeCustomReload) {
                 continue;
             }
