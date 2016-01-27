@@ -7,37 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0141440E1C580F780058CE51 /* NNReloadMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0141440D1C580F780058CE51 /* NNReloadMapper.m */; };
-		014144111C582C040058CE51 /* NNIndexMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 014144101C582C040058CE51 /* NNIndexMapping.m */; };
-		01A3569E1C484EFA009969A3 /* UIKitWorkarounds.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01A3569D1C484EFA009969A3 /* UIKitWorkarounds.h */; };
-		01A356A01C484EFA009969A3 /* UIKitWorkarounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A3569F1C484EFA009969A3 /* UIKitWorkarounds.m */; };
-		01A356CD1C4854D2009969A3 /* NNTableViewReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A356CC1C4854D2009969A3 /* NNTableViewReloader.m */; };
-		01A356D01C485A3C009969A3 /* NNReloadOperationSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A356CF1C485A3C009969A3 /* NNReloadOperationSanitizer.m */; };
-		01A356D31C485A60009969A3 /* NNReloadOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A356D21C485A60009969A3 /* NNReloadOperations.m */; };
-		01A356D71C4882D2009969A3 /* NNCollectionViewReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A356D61C4882D2009969A3 /* NNCollectionViewReloader.m */; };
+		01A28D491C597626006F0A95 /* UIKitWorkarounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A28D481C597626006F0A95 /* UIKitWorkarounds.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01A28D501C597626006F0A95 /* UIKitWorkarounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A28D461C597626006F0A95 /* UIKitWorkarounds.framework */; };
+		01A28D551C597626006F0A95 /* UIKitWorkaroundsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A28D541C597626006F0A95 /* UIKitWorkaroundsTests.m */; };
+		01A28D5D1C597641006F0A95 /* NNReloadOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A356D21C485A60009969A3 /* NNReloadOperations.m */; };
+		01A28D5E1C597641006F0A95 /* NNReloadOperationSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A356CF1C485A3C009969A3 /* NNReloadOperationSanitizer.m */; };
+		01A28D5F1C597641006F0A95 /* NNReloadMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0141440D1C580F780058CE51 /* NNReloadMapper.m */; };
+		01A28D601C597641006F0A95 /* NNIndexMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 014144101C582C040058CE51 /* NNIndexMapping.m */; };
+		01A28D611C597641006F0A95 /* NNTableViewReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A356CC1C4854D2009969A3 /* NNTableViewReloader.m */; };
+		01A28D621C597641006F0A95 /* NNCollectionViewReloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A356D61C4882D2009969A3 /* NNCollectionViewReloader.m */; };
+		01A28D631C59764E006F0A95 /* NNReloadOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A356D11C485A60009969A3 /* NNReloadOperations.h */; };
+		01A28D641C59764E006F0A95 /* NNReloadOperationSanitizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A356CE1C485A3C009969A3 /* NNReloadOperationSanitizer.h */; };
+		01A28D651C59764E006F0A95 /* NNReloadMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 0141440C1C580F780058CE51 /* NNReloadMapper.h */; };
+		01A28D661C59764E006F0A95 /* NNIndexMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = 0141440F1C582C040058CE51 /* NNIndexMapping.h */; };
+		01A28D671C59764E006F0A95 /* NNCellCustomReloadBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A356D41C4861D4009969A3 /* NNCellCustomReloadBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01A28D681C59764E006F0A95 /* NNTableViewReloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A356CB1C4854D2009969A3 /* NNTableViewReloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01A28D691C59764E006F0A95 /* NNCollectionViewReloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A356D51C4882D2009969A3 /* NNCollectionViewReloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		01A356981C484EFA009969A3 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				01A3569E1C484EFA009969A3 /* UIKitWorkarounds.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
+/* Begin PBXContainerItemProxy section */
+		01A28D511C597626006F0A95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01A356921C484EFA009969A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01A28D451C597626006F0A95;
+			remoteInfo = UIKitWorkarounds;
 		};
-/* End PBXCopyFilesBuildPhase section */
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0141440C1C580F780058CE51 /* NNReloadMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNReloadMapper.h; sourceTree = "<group>"; };
 		0141440D1C580F780058CE51 /* NNReloadMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNReloadMapper.m; sourceTree = "<group>"; };
 		0141440F1C582C040058CE51 /* NNIndexMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNIndexMapping.h; sourceTree = "<group>"; };
 		014144101C582C040058CE51 /* NNIndexMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNIndexMapping.m; sourceTree = "<group>"; };
-		01A3569A1C484EFA009969A3 /* libUIKitWorkarounds.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUIKitWorkarounds.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		01A28D461C597626006F0A95 /* UIKitWorkarounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIKitWorkarounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		01A28D481C597626006F0A95 /* UIKitWorkarounds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitWorkarounds.h; sourceTree = "<group>"; };
+		01A28D4A1C597626006F0A95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01A28D4F1C597626006F0A95 /* UIKitWorkaroundsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIKitWorkaroundsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01A28D541C597626006F0A95 /* UIKitWorkaroundsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIKitWorkaroundsTests.m; sourceTree = "<group>"; };
+		01A28D561C597626006F0A95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01A3569D1C484EFA009969A3 /* UIKitWorkarounds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitWorkarounds.h; sourceTree = "<group>"; };
-		01A3569F1C484EFA009969A3 /* UIKitWorkarounds.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIKitWorkarounds.m; sourceTree = "<group>"; };
 		01A356CB1C4854D2009969A3 /* NNTableViewReloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNTableViewReloader.h; sourceTree = "<group>"; };
 		01A356CC1C4854D2009969A3 /* NNTableViewReloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNTableViewReloader.m; sourceTree = "<group>"; };
 		01A356CE1C485A3C009969A3 /* NNReloadOperationSanitizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNReloadOperationSanitizer.h; sourceTree = "<group>"; };
@@ -50,20 +59,48 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		01A356971C484EFA009969A3 /* Frameworks */ = {
+		01A28D421C597626006F0A95 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		01A28D4C1C597626006F0A95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01A28D501C597626006F0A95 /* UIKitWorkarounds.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01A28D471C597626006F0A95 /* UIKitWorkarounds */ = {
+			isa = PBXGroup;
+			children = (
+				01A28D481C597626006F0A95 /* UIKitWorkarounds.h */,
+				01A28D4A1C597626006F0A95 /* Info.plist */,
+			);
+			path = UIKitWorkarounds;
+			sourceTree = "<group>";
+		};
+		01A28D531C597626006F0A95 /* UIKitWorkaroundsTests */ = {
+			isa = PBXGroup;
+			children = (
+				01A28D541C597626006F0A95 /* UIKitWorkaroundsTests.m */,
+				01A28D561C597626006F0A95 /* Info.plist */,
+			);
+			path = UIKitWorkaroundsTests;
+			sourceTree = "<group>";
+		};
 		01A356911C484EFA009969A3 = {
 			isa = PBXGroup;
 			children = (
 				01A3569C1C484EFA009969A3 /* UIKitWorkarounds */,
+				01A28D471C597626006F0A95 /* UIKitWorkarounds */,
+				01A28D531C597626006F0A95 /* UIKitWorkaroundsTests */,
 				01A3569B1C484EFA009969A3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,7 +108,8 @@
 		01A3569B1C484EFA009969A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01A3569A1C484EFA009969A3 /* libUIKitWorkarounds.a */,
+				01A28D461C597626006F0A95 /* UIKitWorkarounds.framework */,
+				01A28D4F1C597626006F0A95 /* UIKitWorkaroundsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,7 +119,6 @@
 			children = (
 				01A356C91C48549B009969A3 /* UITableView + UICollectionView */,
 				01A3569D1C484EFA009969A3 /* UIKitWorkarounds.h */,
-				01A3569F1C484EFA009969A3 /* UIKitWorkarounds.m */,
 			);
 			path = UIKitWorkarounds;
 			sourceTree = "<group>";
@@ -116,14 +153,33 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		01A28D431C597626006F0A95 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01A28D491C597626006F0A95 /* UIKitWorkarounds.h in Headers */,
+				01A28D681C59764E006F0A95 /* NNTableViewReloader.h in Headers */,
+				01A28D691C59764E006F0A95 /* NNCollectionViewReloader.h in Headers */,
+				01A28D671C59764E006F0A95 /* NNCellCustomReloadBlock.h in Headers */,
+				01A28D631C59764E006F0A95 /* NNReloadOperations.h in Headers */,
+				01A28D641C59764E006F0A95 /* NNReloadOperationSanitizer.h in Headers */,
+				01A28D651C59764E006F0A95 /* NNReloadMapper.h in Headers */,
+				01A28D661C59764E006F0A95 /* NNIndexMapping.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		01A356991C484EFA009969A3 /* UIKitWorkarounds */ = {
+		01A28D451C597626006F0A95 /* UIKitWorkarounds */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 01A356A31C484EFA009969A3 /* Build configuration list for PBXNativeTarget "UIKitWorkarounds" */;
+			buildConfigurationList = 01A28D571C597626006F0A95 /* Build configuration list for PBXNativeTarget "UIKitWorkarounds" */;
 			buildPhases = (
-				01A356961C484EFA009969A3 /* Sources */,
-				01A356971C484EFA009969A3 /* Frameworks */,
-				01A356981C484EFA009969A3 /* CopyFiles */,
+				01A28D411C597626006F0A95 /* Sources */,
+				01A28D421C597626006F0A95 /* Frameworks */,
+				01A28D431C597626006F0A95 /* Headers */,
+				01A28D441C597626006F0A95 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -131,8 +187,26 @@
 			);
 			name = UIKitWorkarounds;
 			productName = UIKitWorkarounds;
-			productReference = 01A3569A1C484EFA009969A3 /* libUIKitWorkarounds.a */;
-			productType = "com.apple.product-type.library.static";
+			productReference = 01A28D461C597626006F0A95 /* UIKitWorkarounds.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		01A28D4E1C597626006F0A95 /* UIKitWorkaroundsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01A28D5A1C597626006F0A95 /* Build configuration list for PBXNativeTarget "UIKitWorkaroundsTests" */;
+			buildPhases = (
+				01A28D4B1C597626006F0A95 /* Sources */,
+				01A28D4C1C597626006F0A95 /* Frameworks */,
+				01A28D4D1C597626006F0A95 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01A28D521C597626006F0A95 /* PBXTargetDependency */,
+			);
+			name = UIKitWorkaroundsTests;
+			productName = UIKitWorkaroundsTests;
+			productReference = 01A28D4F1C597626006F0A95 /* UIKitWorkaroundsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -144,7 +218,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Nick Tymchenko";
 				TargetAttributes = {
-					01A356991C484EFA009969A3 = {
+					01A28D451C597626006F0A95 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					01A28D4E1C597626006F0A95 = {
 						CreatedOnToolsVersion = 7.2;
 					};
 				};
@@ -161,29 +238,122 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				01A356991C484EFA009969A3 /* UIKitWorkarounds */,
+				01A28D451C597626006F0A95 /* UIKitWorkarounds */,
+				01A28D4E1C597626006F0A95 /* UIKitWorkaroundsTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		01A28D441C597626006F0A95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01A28D4D1C597626006F0A95 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		01A356961C484EFA009969A3 /* Sources */ = {
+		01A28D411C597626006F0A95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01A356A01C484EFA009969A3 /* UIKitWorkarounds.m in Sources */,
-				01A356D71C4882D2009969A3 /* NNCollectionViewReloader.m in Sources */,
-				01A356D01C485A3C009969A3 /* NNReloadOperationSanitizer.m in Sources */,
-				01A356D31C485A60009969A3 /* NNReloadOperations.m in Sources */,
-				01A356CD1C4854D2009969A3 /* NNTableViewReloader.m in Sources */,
-				014144111C582C040058CE51 /* NNIndexMapping.m in Sources */,
-				0141440E1C580F780058CE51 /* NNReloadMapper.m in Sources */,
+				01A28D5D1C597641006F0A95 /* NNReloadOperations.m in Sources */,
+				01A28D5E1C597641006F0A95 /* NNReloadOperationSanitizer.m in Sources */,
+				01A28D5F1C597641006F0A95 /* NNReloadMapper.m in Sources */,
+				01A28D601C597641006F0A95 /* NNIndexMapping.m in Sources */,
+				01A28D611C597641006F0A95 /* NNTableViewReloader.m in Sources */,
+				01A28D621C597641006F0A95 /* NNCollectionViewReloader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01A28D4B1C597626006F0A95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01A28D551C597626006F0A95 /* UIKitWorkaroundsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		01A28D521C597626006F0A95 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01A28D451C597626006F0A95 /* UIKitWorkarounds */;
+			targetProxy = 01A28D511C597626006F0A95 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		01A28D581C597626006F0A95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = UIKitWorkarounds/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.nickynick.UIKitWorkarounds;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		01A28D591C597626006F0A95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = UIKitWorkarounds/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.nickynick.UIKitWorkarounds;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		01A28D5B1C597626006F0A95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = UIKitWorkaroundsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.nickynick.UIKitWorkaroundsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		01A28D5C1C597626006F0A95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = UIKitWorkaroundsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.nickynick.UIKitWorkaroundsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		01A356A11C484EFA009969A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -264,41 +434,30 @@
 			};
 			name = Release;
 		};
-		01A356A41C484EFA009969A3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		01A356A51C484EFA009969A3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		01A28D571C597626006F0A95 /* Build configuration list for PBXNativeTarget "UIKitWorkarounds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01A28D581C597626006F0A95 /* Debug */,
+				01A28D591C597626006F0A95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		01A28D5A1C597626006F0A95 /* Build configuration list for PBXNativeTarget "UIKitWorkaroundsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01A28D5B1C597626006F0A95 /* Debug */,
+				01A28D5C1C597626006F0A95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		01A356951C484EFA009969A3 /* Build configuration list for PBXProject "UIKitWorkarounds" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				01A356A11C484EFA009969A3 /* Debug */,
 				01A356A21C484EFA009969A3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		01A356A31C484EFA009969A3 /* Build configuration list for PBXNativeTarget "UIKitWorkarounds" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				01A356A41C484EFA009969A3 /* Debug */,
-				01A356A51C484EFA009969A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

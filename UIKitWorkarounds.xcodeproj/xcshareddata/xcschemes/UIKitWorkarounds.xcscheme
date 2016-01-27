@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "01A356991C484EFA009969A3"
-               BuildableName = "libUIKitWorkarounds.a"
+               BlueprintIdentifier = "01A28D451C597626006F0A95"
+               BuildableName = "UIKitWorkarounds.framework"
                BlueprintName = "UIKitWorkarounds"
                ReferencedContainer = "container:UIKitWorkarounds.xcodeproj">
             </BuildableReference>
@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "01A28D4E1C597626006F0A95"
+               BuildableName = "UIKitWorkaroundsTests.xctest"
+               BlueprintName = "UIKitWorkaroundsTests"
+               ReferencedContainer = "container:UIKitWorkarounds.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "01A28D451C597626006F0A95"
+            BuildableName = "UIKitWorkarounds.framework"
+            BlueprintName = "UIKitWorkarounds"
+            ReferencedContainer = "container:UIKitWorkarounds.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -45,8 +64,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "01A356991C484EFA009969A3"
-            BuildableName = "libUIKitWorkarounds.a"
+            BlueprintIdentifier = "01A28D451C597626006F0A95"
+            BuildableName = "UIKitWorkarounds.framework"
             BlueprintName = "UIKitWorkarounds"
             ReferencedContainer = "container:UIKitWorkarounds.xcodeproj">
          </BuildableReference>
@@ -63,8 +82,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "01A356991C484EFA009969A3"
-            BuildableName = "libUIKitWorkarounds.a"
+            BlueprintIdentifier = "01A28D451C597626006F0A95"
+            BuildableName = "UIKitWorkarounds.framework"
             BlueprintName = "UIKitWorkarounds"
             ReferencedContainer = "container:UIKitWorkarounds.xcodeproj">
          </BuildableReference>
