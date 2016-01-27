@@ -7,6 +7,7 @@
 //
 
 #import "DemoTableViewController.h"
+#import <UIKitWorkarounds/UIKitWorkarounds.h>
 
 static NSString * const kCellIdentifier = @"cell";
 
@@ -57,6 +58,24 @@ static NSString * const kCellIdentifier = @"cell";
 }
 
 - (void)doSomethingWithData {
+    self.items[0][1] = @"a2 (updated)";
+    
+    NSString *item = self.items[0][0];
+    [self.items[0] removeObjectAtIndex:0];
+    [self.items[2] insertObject:item atIndex:0];
+    
+    [self addSectionWithItems:@[ @"derp", @"foo" ] title:@"🐓" atIndex:0];
+    
+    NNTableViewReloader *reloader = [[NNTableViewReloader alloc] initWithTableView:self.tableView];
+    
+    [reloader performUpdates:^{
+        [reloader insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [reloader reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:1 inSection:0] ] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [reloader moveRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                         toIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
+    } completion:nil];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
