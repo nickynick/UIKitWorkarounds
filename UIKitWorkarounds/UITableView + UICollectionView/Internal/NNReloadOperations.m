@@ -6,7 +6,24 @@
 //  Copyright © 2016 Nick Tymchenko. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "NNReloadOperations.h"
+
+static NSString *NNReloadOperationTypeToString(NNReloadOperationType type) {
+    switch (type) {
+        case NNReloadOperationTypeDelete:
+            return @"delete";
+        case NNReloadOperationTypeInsert:
+            return @"insert";
+        case NNReloadOperationTypeReload:
+            return @"reload";
+        case NNReloadOperationTypeMove:
+            return @"move";
+        case NNReloadOperationTypeCustomReload:
+            return @"custom reload";
+    }
+}
+
 
 @implementation NNReloadOperation
 
@@ -39,6 +56,13 @@
     return self;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"{ %@ from %@.%@ to %@.%@ }",
+            NNReloadOperationTypeToString(self.type),
+            @(self.before.section), @(self.before.row),
+            @(self.after.section), @(self.after.row)];
+}
+
 @end
 
 
@@ -58,6 +82,13 @@
     _after = after;
     
     return self;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"{ %@ from %@ to %@ }",
+            NNReloadOperationTypeToString(self.type),
+            @(self.before),
+            @(self.after)];
 }
 
 @end
@@ -101,6 +132,12 @@
             }
         }
     }
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"{\nsection operations: %@,\n\nindexPath operations: %@\n}",
+            self.sectionOperations,
+            self.indexPathOperations];
 }
 
 @end
