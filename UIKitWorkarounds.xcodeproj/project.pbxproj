@@ -23,6 +23,8 @@
 		01A28D671C59764E006F0A95 /* NNCellCustomReloadBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A356D41C4861D4009969A3 /* NNCellCustomReloadBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01A28D681C59764E006F0A95 /* NNTableViewReloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A356CB1C4854D2009969A3 /* NNTableViewReloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01A28D691C59764E006F0A95 /* NNCollectionViewReloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A356D51C4882D2009969A3 /* NNCollectionViewReloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01A28D8A1C598FE9006F0A95 /* NNSwizzlingUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A28D881C598FE9006F0A95 /* NNSwizzlingUtils.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		01A28D8B1C598FE9006F0A95 /* NNSwizzlingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A28D891C598FE9006F0A95 /* NNSwizzlingUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		01A28D4F1C597626006F0A95 /* UIKitWorkaroundsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIKitWorkaroundsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01A28D541C597626006F0A95 /* UIKitWorkaroundsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIKitWorkaroundsTests.m; sourceTree = "<group>"; };
 		01A28D561C597626006F0A95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01A28D881C598FE9006F0A95 /* NNSwizzlingUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNSwizzlingUtils.h; sourceTree = "<group>"; };
+		01A28D891C598FE9006F0A95 /* NNSwizzlingUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNSwizzlingUtils.m; sourceTree = "<group>"; };
 		01A3569D1C484EFA009969A3 /* UIKitWorkarounds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitWorkarounds.h; sourceTree = "<group>"; };
 		01A356CB1C4854D2009969A3 /* NNTableViewReloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNTableViewReloader.h; sourceTree = "<group>"; };
 		01A356CC1C4854D2009969A3 /* NNTableViewReloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNTableViewReloader.m; sourceTree = "<group>"; };
@@ -95,6 +99,15 @@
 			path = UIKitWorkaroundsTests;
 			sourceTree = "<group>";
 		};
+		01A28D871C598FDA006F0A95 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				01A28D881C598FE9006F0A95 /* NNSwizzlingUtils.h */,
+				01A28D891C598FE9006F0A95 /* NNSwizzlingUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		01A356911C484EFA009969A3 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				01A356C91C48549B009969A3 /* UITableView + UICollectionView */,
+				01A28D871C598FDA006F0A95 /* Utils */,
 				01A3569D1C484EFA009969A3 /* UIKitWorkarounds.h */,
 			);
 			path = UIKitWorkarounds;
@@ -162,6 +176,7 @@
 				01A28D681C59764E006F0A95 /* NNTableViewReloader.h in Headers */,
 				01A28D691C59764E006F0A95 /* NNCollectionViewReloader.h in Headers */,
 				01A28D671C59764E006F0A95 /* NNCellCustomReloadBlock.h in Headers */,
+				01A28D8A1C598FE9006F0A95 /* NNSwizzlingUtils.h in Headers */,
 				01A28D631C59764E006F0A95 /* NNReloadOperations.h in Headers */,
 				01A28D641C59764E006F0A95 /* NNReloadOperationSanitizer.h in Headers */,
 				01A28D651C59764E006F0A95 /* NNReloadMapper.h in Headers */,
@@ -271,6 +286,7 @@
 				01A28D5F1C597641006F0A95 /* NNReloadMapper.m in Sources */,
 				01A28D601C597641006F0A95 /* NNIndexMapping.m in Sources */,
 				01A28D611C597641006F0A95 /* NNTableViewReloader.m in Sources */,
+				01A28D8B1C598FE9006F0A95 /* NNSwizzlingUtils.m in Sources */,
 				01A28D621C597641006F0A95 /* NNCollectionViewReloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
