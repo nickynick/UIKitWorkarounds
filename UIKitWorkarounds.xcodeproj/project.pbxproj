@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		01142BC51C6427C6008A0B90 /* UIKitWorkarounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A3569D1C484EFA009969A3 /* UIKitWorkarounds.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01142BC91C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 01142BC71C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01142BCA1C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 01142BC81C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.m */; };
 		01A28D501C597626006F0A95 /* UIKitWorkarounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A28D461C597626006F0A95 /* UIKitWorkarounds.framework */; };
 		01A28D551C597626006F0A95 /* UIKitWorkaroundsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A28D541C597626006F0A95 /* UIKitWorkaroundsTests.m */; };
 		01A28D5D1C597641006F0A95 /* NNReloadOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A356D21C485A60009969A3 /* NNReloadOperations.m */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01142BC71C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+NNStatusBarManagement.h"; sourceTree = "<group>"; };
+		01142BC81C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+NNStatusBarManagement.m"; sourceTree = "<group>"; };
 		0141440C1C580F780058CE51 /* NNReloadMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNReloadMapper.h; sourceTree = "<group>"; };
 		0141440D1C580F780058CE51 /* NNReloadMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNReloadMapper.m; sourceTree = "<group>"; };
 		0141440F1C582C040058CE51 /* NNIndexMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNIndexMapping.h; sourceTree = "<group>"; };
@@ -79,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01142BC61C64283B008A0B90 /* Status bar */ = {
+			isa = PBXGroup;
+			children = (
+				01142BC71C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.h */,
+				01142BC81C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.m */,
+			);
+			path = "Status bar";
+			sourceTree = "<group>";
+		};
 		01A28D531C597626006F0A95 /* UIKitWorkaroundsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				01A356C91C48549B009969A3 /* UITableView + UICollectionView */,
+				01142BC61C64283B008A0B90 /* Status bar */,
 				01A28D871C598FDA006F0A95 /* Utils */,
 				01A3569D1C484EFA009969A3 /* UIKitWorkarounds.h */,
 			);
@@ -161,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01A28D681C59764E006F0A95 /* NNTableViewReloader.h in Headers */,
+				01142BC91C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.h in Headers */,
 				01A28D691C59764E006F0A95 /* NNCollectionViewReloader.h in Headers */,
 				01A28D671C59764E006F0A95 /* NNCellCustomReloadBlock.h in Headers */,
 				01142BC51C6427C6008A0B90 /* UIKitWorkarounds.h in Headers */,
@@ -269,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01142BCA1C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.m in Sources */,
 				01A28D5D1C597641006F0A95 /* NNReloadOperations.m in Sources */,
 				01A28D5E1C597641006F0A95 /* NNReloadOperationSanitizer.m in Sources */,
 				01A28D5F1C597641006F0A95 /* NNReloadMapper.m in Sources */,
