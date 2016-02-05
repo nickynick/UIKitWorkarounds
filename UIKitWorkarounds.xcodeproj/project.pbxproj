@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01A28D491C597626006F0A95 /* UIKitWorkarounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A28D481C597626006F0A95 /* UIKitWorkarounds.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01142BC51C6427C6008A0B90 /* UIKitWorkarounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A3569D1C484EFA009969A3 /* UIKitWorkarounds.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01A28D501C597626006F0A95 /* UIKitWorkarounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A28D461C597626006F0A95 /* UIKitWorkarounds.framework */; };
 		01A28D551C597626006F0A95 /* UIKitWorkaroundsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A28D541C597626006F0A95 /* UIKitWorkaroundsTests.m */; };
 		01A28D5D1C597641006F0A95 /* NNReloadOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A356D21C485A60009969A3 /* NNReloadOperations.m */; };
@@ -43,8 +43,6 @@
 		0141440F1C582C040058CE51 /* NNIndexMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNIndexMapping.h; sourceTree = "<group>"; };
 		014144101C582C040058CE51 /* NNIndexMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNIndexMapping.m; sourceTree = "<group>"; };
 		01A28D461C597626006F0A95 /* UIKitWorkarounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIKitWorkarounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		01A28D481C597626006F0A95 /* UIKitWorkarounds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitWorkarounds.h; sourceTree = "<group>"; };
-		01A28D4A1C597626006F0A95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01A28D4F1C597626006F0A95 /* UIKitWorkaroundsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIKitWorkaroundsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01A28D541C597626006F0A95 /* UIKitWorkaroundsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIKitWorkaroundsTests.m; sourceTree = "<group>"; };
 		01A28D561C597626006F0A95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,15 +79,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01A28D471C597626006F0A95 /* UIKitWorkarounds */ = {
-			isa = PBXGroup;
-			children = (
-				01A28D481C597626006F0A95 /* UIKitWorkarounds.h */,
-				01A28D4A1C597626006F0A95 /* Info.plist */,
-			);
-			path = UIKitWorkarounds;
-			sourceTree = "<group>";
-		};
 		01A28D531C597626006F0A95 /* UIKitWorkaroundsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				01A3569C1C484EFA009969A3 /* UIKitWorkarounds */,
-				01A28D471C597626006F0A95 /* UIKitWorkarounds */,
 				01A28D531C597626006F0A95 /* UIKitWorkaroundsTests */,
 				01A3569B1C484EFA009969A3 /* Products */,
 			);
@@ -172,10 +160,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01A28D491C597626006F0A95 /* UIKitWorkarounds.h in Headers */,
 				01A28D681C59764E006F0A95 /* NNTableViewReloader.h in Headers */,
 				01A28D691C59764E006F0A95 /* NNCollectionViewReloader.h in Headers */,
 				01A28D671C59764E006F0A95 /* NNCellCustomReloadBlock.h in Headers */,
+				01142BC51C6427C6008A0B90 /* UIKitWorkarounds.h in Headers */,
 				01A28D8A1C598FE9006F0A95 /* NNSwizzlingUtils.h in Headers */,
 				01A28D631C59764E006F0A95 /* NNReloadOperations.h in Headers */,
 				01A28D641C59764E006F0A95 /* NNReloadOperationSanitizer.h in Headers */,
@@ -460,6 +448,7 @@
 				01A28D591C597626006F0A95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		01A28D5A1C597626006F0A95 /* Build configuration list for PBXNativeTarget "UIKitWorkaroundsTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +457,7 @@
 				01A28D5C1C597626006F0A95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		01A356951C484EFA009969A3 /* Build configuration list for PBXProject "UIKitWorkarounds" */ = {
 			isa = XCConfigurationList;
