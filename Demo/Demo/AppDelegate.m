@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DemoTableViewController.h"
+#import "DemoCollectionViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +18,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    DemoTableViewController *demoViewController = [[DemoTableViewController alloc] init];
+//    DemoTableViewController *demoViewController = [[DemoTableViewController alloc] init];
+    DemoCollectionViewController *demoViewController = [[DemoCollectionViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:demoViewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
