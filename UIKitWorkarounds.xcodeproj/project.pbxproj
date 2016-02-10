@@ -131,7 +131,7 @@
 		01A3569C1C484EFA009969A3 /* UIKitWorkarounds */ = {
 			isa = PBXGroup;
 			children = (
-				01A356C91C48549B009969A3 /* UITableView + UICollectionView */,
+				01A356C91C48549B009969A3 /* Reloaders */,
 				01142BC61C64283B008A0B90 /* Status bar */,
 				01A28D871C598FDA006F0A95 /* Utils */,
 				01A3569D1C484EFA009969A3 /* UIKitWorkarounds.h */,
@@ -139,7 +139,7 @@
 			path = UIKitWorkarounds;
 			sourceTree = "<group>";
 		};
-		01A356C91C48549B009969A3 /* UITableView + UICollectionView */ = {
+		01A356C91C48549B009969A3 /* Reloaders */ = {
 			isa = PBXGroup;
 			children = (
 				01A356CA1C48549B009969A3 /* Internal */,
@@ -149,7 +149,7 @@
 				01A356D51C4882D2009969A3 /* NNCollectionViewReloader.h */,
 				01A356D61C4882D2009969A3 /* NNCollectionViewReloader.m */,
 			);
-			path = "UITableView + UICollectionView";
+			path = Reloaders;
 			sourceTree = "<group>";
 		};
 		01A356CA1C48549B009969A3 /* Internal */ = {
