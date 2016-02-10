@@ -12,8 +12,8 @@
 		01131FDD1C6BFAE300757047 /* UITabBarController+NNInterfaceOrientation.h in Headers */ = {isa = PBXBuildFile; fileRef = 01131FDB1C6BFAE300757047 /* UITabBarController+NNInterfaceOrientation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		01131FDE1C6BFAE300757047 /* UITabBarController+NNInterfaceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 01131FDC1C6BFAE300757047 /* UITabBarController+NNInterfaceOrientation.m */; };
 		01142BC51C6427C6008A0B90 /* UIKitWorkarounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 01A3569D1C484EFA009969A3 /* UIKitWorkarounds.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		01142BC91C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 01142BC71C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		01142BCA1C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 01142BC81C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.m */; };
+		01142BC91C6428BF008A0B90 /* UINavigationController+NNStatusBarStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 01142BC71C6428BF008A0B90 /* UINavigationController+NNStatusBarStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01142BCA1C6428BF008A0B90 /* UINavigationController+NNStatusBarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 01142BC81C6428BF008A0B90 /* UINavigationController+NNStatusBarStyle.m */; };
 		01A28D501C597626006F0A95 /* UIKitWorkarounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A28D461C597626006F0A95 /* UIKitWorkarounds.framework */; };
 		01A28D551C597626006F0A95 /* UIKitWorkaroundsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A28D541C597626006F0A95 /* UIKitWorkaroundsTests.m */; };
 		01A28D5D1C597641006F0A95 /* NNReloadOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A356D21C485A60009969A3 /* NNReloadOperations.m */; };
@@ -48,8 +48,8 @@
 		01131FD81C6BF9B000757047 /* UINavigationController+NNInterfaceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+NNInterfaceOrientation.m"; sourceTree = "<group>"; };
 		01131FDB1C6BFAE300757047 /* UITabBarController+NNInterfaceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+NNInterfaceOrientation.h"; sourceTree = "<group>"; };
 		01131FDC1C6BFAE300757047 /* UITabBarController+NNInterfaceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+NNInterfaceOrientation.m"; sourceTree = "<group>"; };
-		01142BC71C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+NNStatusBarManagement.h"; sourceTree = "<group>"; };
-		01142BC81C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+NNStatusBarManagement.m"; sourceTree = "<group>"; };
+		01142BC71C6428BF008A0B90 /* UINavigationController+NNStatusBarStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+NNStatusBarStyle.h"; sourceTree = "<group>"; };
+		01142BC81C6428BF008A0B90 /* UINavigationController+NNStatusBarStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+NNStatusBarStyle.m"; sourceTree = "<group>"; };
 		0141440C1C580F780058CE51 /* NNReloadMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNReloadMapper.h; sourceTree = "<group>"; };
 		0141440D1C580F780058CE51 /* NNReloadMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNReloadMapper.m; sourceTree = "<group>"; };
 		0141440F1C582C040058CE51 /* NNIndexMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNIndexMapping.h; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 		01142BC61C64283B008A0B90 /* Status bar */ = {
 			isa = PBXGroup;
 			children = (
-				01142BC71C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.h */,
-				01142BC81C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.m */,
+				01142BC71C6428BF008A0B90 /* UINavigationController+NNStatusBarStyle.h */,
+				01142BC81C6428BF008A0B90 /* UINavigationController+NNStatusBarStyle.m */,
 			);
 			path = "Status bar";
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01A28D681C59764E006F0A95 /* NNTableViewReloader.h in Headers */,
-				01142BC91C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.h in Headers */,
+				01142BC91C6428BF008A0B90 /* UINavigationController+NNStatusBarStyle.h in Headers */,
 				01A28D691C59764E006F0A95 /* NNCollectionViewReloader.h in Headers */,
 				01A28D671C59764E006F0A95 /* NNCellCustomReloadBlock.h in Headers */,
 				01142BC51C6427C6008A0B90 /* UIKitWorkarounds.h in Headers */,
@@ -307,7 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01131FDE1C6BFAE300757047 /* UITabBarController+NNInterfaceOrientation.m in Sources */,
-				01142BCA1C6428BF008A0B90 /* UINavigationController+NNStatusBarManagement.m in Sources */,
+				01142BCA1C6428BF008A0B90 /* UINavigationController+NNStatusBarStyle.m in Sources */,
 				01A28D5D1C597641006F0A95 /* NNReloadOperations.m in Sources */,
 				01A28D5E1C597641006F0A95 /* NNReloadOperationSanitizer.m in Sources */,
 				01A28D5F1C597641006F0A95 /* NNReloadMapper.m in Sources */,

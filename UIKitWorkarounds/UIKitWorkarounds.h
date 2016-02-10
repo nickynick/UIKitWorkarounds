@@ -18,7 +18,7 @@ FOUNDATION_EXPORT const unsigned char UIKitWorkaroundsVersionString[];
 #import <UIKitWorkarounds/NNTableViewReloader.h>
 #import <UIKitWorkarounds/NNCollectionViewReloader.h>
 
-#import <UIKitWorkarounds/UINavigationController+NNStatusBarManagement.h>
+#import <UIKitWorkarounds/UINavigationController+NNStatusBarStyle.h>
 
 #import <UIKitWorkarounds/UINavigationController+NNInterfaceOrientation.h>
 #import <UIKitWorkarounds/UITabBarController+NNInterfaceOrientation.h>
