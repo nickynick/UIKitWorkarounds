@@ -27,6 +27,8 @@ static const char kStatusBarStyleKey;
 #pragma mark - Swizzling
 
 + (void)nn_statusBarManagement_swizzleMethods {
+    // Make .window KVO-compliant, okay?
+    
     [NNSwizzlingUtils swizzle:[UINavigationBar class] instanceMethod:@selector(willMoveToWindow:)
                    withMethod:@selector(nn_statusBarManagement_willMoveToWindow:)];
     
@@ -129,10 +131,9 @@ static const char kStatusBarStyleKey;
                                               context:(void *)context {
     if (context == &kNavigationBarKVOContext) {
         self.nn_navigationBarHidden = [self nn_calculateIsNavigationBarHidden];
-        return;
+    } else {
+        [self nn_statusBarManagement_observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
-    
-    [self nn_statusBarManagement_observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
 #pragma mark - Status bar logic
@@ -140,6 +141,10 @@ static const char kStatusBarStyleKey;
 static char kNavigationBarKVOContext;
 
 - (void)nn_statusBarManagement_setupTracking {
+    // Here be dragons!
+    // UIKit properties are not guaranteed to be KVO-compliant, but these actually work fine.
+    // Not too likely, but it may break in the future, so we'll have to seek other options.
+    
     [self.navigationBar addObserver:self forKeyPath:@"window" options:0 context:&kNavigationBarKVOContext];
     [self.navigationBar addObserver:self forKeyPath:@"layer.bounds" options:0 context:&kNavigationBarKVOContext];
     [self.navigationBar addObserver:self forKeyPath:@"layer.position" options:0 context:&kNavigationBarKVOContext];
@@ -153,6 +158,9 @@ static char kNavigationBarKVOContext;
     // There is a crazy bug related to interactive pop.
     // Navigation bar may become corrupt if we update status bar at the very start of a gesture, and then user cancels pop.
     // (Yeah, I know.)
+    //
+    // Why is this important? If you hide/show navigation bar in navigationController:willShowViewController:animated:
+    // triggered by interactive pop, this is exactly what happens.
     
     if (recognizer.state != UIGestureRecognizerStateBegan && self.nn_hasPendingStatusBarAppearanceUpdate) {
         self.nn_hasPendingStatusBarAppearanceUpdate = NO;
@@ -162,6 +170,11 @@ static char kNavigationBarKVOContext;
 }
 
 - (BOOL)nn_calculateIsNavigationBarHidden {
+    // Why do we have to do all this instead of, e.g. swizzling setNavigationBarHidden:?
+    //
+    // There are private methods which are also being used for hiding navigation bar, so it's not reliable.
+    // One example is UISearchController-related navigation bar animations.
+    
     if (!self.navigationBar.window) {
         return YES;
     }
@@ -193,6 +206,10 @@ static char kNavigationBarKVOContext;
 }
 
 - (BOOL)nn_checkIfRemoteController {
+    // Remote view controllers, being in use since iOS 6, are another tricky case.
+    // While they are subclasses of UINavigationController, in fact there's nothing of navigation controller in there.
+    // The actual subviews come from the different process, so there's no navigation bar for us to observe.
+    
     static NSArray<Class> *remoteControllerClasses;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
