@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "UIKitWorkarounds"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "A modular collection of workarounds and fixes for our favorite iOS framework."
 
   s.description      = 'A detailed description will be here soon. Someday.'
