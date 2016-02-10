@@ -3,10 +3,8 @@ Pod::Spec.new do |s|
   s.version          = "0.2.0"
   s.summary          = "A modular collection of workarounds and fixes for our favorite iOS framework."
 
-  s.description      = 'A detailed description will be here soon. Someday.'
-
   s.homepage         = "https://github.com/nickynick/UIKitWorkarounds"  
-  s.license          = 'MIT'
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Nick Tymchenko" => "t.nick.a@gmail.com" }
   s.source           = { :git => "https://github.com/nickynick/UIKitWorkarounds.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/nickynick42'
