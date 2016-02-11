@@ -7,9 +7,9 @@ It's worth to note this isn't a typical "category bag" toolbelt. You'll not find
 
 Without further ado, here's a quick overview of the modules.
 
-  * [Interface orientation forwarding](#interface-orientation)
-  * [UINavigationController's status bar style](#status-bar-style)
-  * [UITableView / UICollectionView reloaders](#reloaders)
+  * [Interface orientation forwarding](#interface-orientation-forwarding)
+  * [UINavigationController's status bar style](#uinavigationcontrollers-status-bar-style)
+  * [UITableView / UICollectionView reloaders](#uitableview--uicollectionview-reloaders)
 
 Interface orientation forwarding
 --------------------------------
