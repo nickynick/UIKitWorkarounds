@@ -102,6 +102,7 @@ static const char kStatusBarStyleKey;
     [self nn_statusBarStyle_viewDidLoad];
     
     [self nn_statusBarStyle_setupTracking];
+    [self nn_statusBarStyle_updateIsNavigationBarHidden];
 }
 
 - (UIViewController *)nn_statusBarStyle_childViewControllerForStatusBarStyle {
@@ -130,7 +131,7 @@ static const char kStatusBarStyleKey;
                                                change:(NSDictionary<NSString *, id> *)change
                                               context:(void *)context {
     if (context == &kNavigationBarKVOContext) {
-        self.nn_statusBarStyle_navigationBarHidden = [self nn_statusBarStyle_calculateIsNavigationBarHidden];
+        [self nn_statusBarStyle_updateIsNavigationBarHidden];
     } else {
         [self nn_statusBarStyle_observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -167,6 +168,10 @@ static char kNavigationBarKVOContext;
             
         [self setNeedsStatusBarAppearanceUpdate];
     }
+}
+
+- (void)nn_statusBarStyle_updateIsNavigationBarHidden {
+    self.nn_statusBarStyle_navigationBarHidden = [self nn_statusBarStyle_calculateIsNavigationBarHidden];
 }
 
 - (BOOL)nn_statusBarStyle_calculateIsNavigationBarHidden {
