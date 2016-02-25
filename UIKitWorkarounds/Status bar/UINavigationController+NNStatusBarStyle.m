@@ -96,6 +96,9 @@ static const char kStatusBarStyleKey;
     
     [NNSwizzlingUtils swizzle:aClass instanceMethod:@selector(observeValueForKeyPath:ofObject:change:context:)
                                          withMethod:@selector(nn_statusBarStyle_observeValueForKeyPath:ofObject:change:context:)];
+    
+    [NNSwizzlingUtils swizzle:aClass instanceMethod:NSSelectorFromString(@"dealloc")
+                                         withMethod:@selector(nn_statusBarStyle_dealloc)];
 }
 
 - (void)nn_statusBarStyle_viewDidLoad {
@@ -137,6 +140,35 @@ static const char kStatusBarStyleKey;
     }
 }
 
+- (void)nn_statusBarStyle_dealloc {
+    [self nn_statusBarStyle_endObservingForKeyPaths:[self nn_statusBarStyle_observableKeyPaths]];
+    
+    [self nn_statusBarStyle_dealloc];
+}
+
+#pragma mark - KVO
+
+- (NSArray *)nn_statusBarStyle_observableKeyPaths {
+    static dispatch_once_t onceToken;
+    static NSArray *keyPaths;
+    dispatch_once(&onceToken, ^{
+        keyPaths = @[@"window", @"layer.bounds", @"layer.position", @"alpha", @"hidden"];
+    });
+    return keyPaths;
+}
+
+- (void)nn_statusBarStyle_beginObservingForKeyPaths:(NSArray *)keyPaths {
+    for (NSString *keyPath in keyPaths) {
+        [self.navigationBar addObserver:self forKeyPath:keyPath options:0 context:&kNavigationBarKVOContext];
+    }
+}
+
+- (void)nn_statusBarStyle_endObservingForKeyPaths:(NSArray *)keyPaths {
+    for (NSString *keyPath in keyPaths) {
+        [self.navigationBar removeObserver:self forKeyPath:keyPath context:&kNavigationBarKVOContext];
+    }
+}
+
 #pragma mark - Status bar logic
 
 static char kNavigationBarKVOContext;
@@ -146,11 +178,7 @@ static char kNavigationBarKVOContext;
     // UIKit properties are not guaranteed to be KVO-compliant, but these actually work fine.
     // Not too likely, but it may break in the future, so we'll have to seek other options.
     
-    [self.navigationBar addObserver:self forKeyPath:@"window" options:0 context:&kNavigationBarKVOContext];
-    [self.navigationBar addObserver:self forKeyPath:@"layer.bounds" options:0 context:&kNavigationBarKVOContext];
-    [self.navigationBar addObserver:self forKeyPath:@"layer.position" options:0 context:&kNavigationBarKVOContext];
-    [self.navigationBar addObserver:self forKeyPath:@"alpha" options:0 context:&kNavigationBarKVOContext];
-    [self.navigationBar addObserver:self forKeyPath:@"hidden" options:0 context:&kNavigationBarKVOContext];
+    [self nn_statusBarStyle_beginObservingForKeyPaths:[self nn_statusBarStyle_observableKeyPaths]];
     
     [self.interactivePopGestureRecognizer addTarget:self action:@selector(nn_statusBarStyle_interactivePopGestureRecognizerChanged:)];
 }
