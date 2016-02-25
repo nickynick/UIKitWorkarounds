@@ -141,30 +141,33 @@ static const char kStatusBarStyleKey;
 }
 
 - (void)nn_statusBarStyle_dealloc {
-    [self nn_statusBarStyle_endObservingForKeyPaths:[self nn_statusBarStyle_observableKeyPaths]];
+    [self nn_statusBarStyle_endNavigationBarObservation];
     
     [self nn_statusBarStyle_dealloc];
 }
 
 #pragma mark - KVO
 
-- (NSArray *)nn_statusBarStyle_observableKeyPaths {
+- (NSArray *)nn_statusBarStyle_navigationBarObservationKeyPaths {
     static dispatch_once_t onceToken;
     static NSArray *keyPaths;
     dispatch_once(&onceToken, ^{
+        // Here be dragons!
+        // UIKit properties are not guaranteed to be KVO-compliant, but these actually work fine.
+        // Not too likely, but it may break in the future, so we'll have to seek other options.        
         keyPaths = @[@"window", @"layer.bounds", @"layer.position", @"alpha", @"hidden"];
     });
     return keyPaths;
 }
 
-- (void)nn_statusBarStyle_beginObservingForKeyPaths:(NSArray *)keyPaths {
-    for (NSString *keyPath in keyPaths) {
+- (void)nn_statusBarStyle_beginNavigationBarObservation {
+    for (NSString *keyPath in [self nn_statusBarStyle_navigationBarObservationKeyPaths]) {
         [self.navigationBar addObserver:self forKeyPath:keyPath options:0 context:&kNavigationBarKVOContext];
     }
 }
 
-- (void)nn_statusBarStyle_endObservingForKeyPaths:(NSArray *)keyPaths {
-    for (NSString *keyPath in keyPaths) {
+- (void)nn_statusBarStyle_endNavigationBarObservation {
+    for (NSString *keyPath in [self nn_statusBarStyle_navigationBarObservationKeyPaths]) {
         [self.navigationBar removeObserver:self forKeyPath:keyPath context:&kNavigationBarKVOContext];
     }
 }
@@ -174,11 +177,7 @@ static const char kStatusBarStyleKey;
 static char kNavigationBarKVOContext;
 
 - (void)nn_statusBarStyle_setupTracking {
-    // Here be dragons!
-    // UIKit properties are not guaranteed to be KVO-compliant, but these actually work fine.
-    // Not too likely, but it may break in the future, so we'll have to seek other options.
-    
-    [self nn_statusBarStyle_beginObservingForKeyPaths:[self nn_statusBarStyle_observableKeyPaths]];
+    [self nn_statusBarStyle_beginNavigationBarObservation];
     
     [self.interactivePopGestureRecognizer addTarget:self action:@selector(nn_statusBarStyle_interactivePopGestureRecognizerChanged:)];
 }
